@@ -1,0 +1,74 @@
+{
+  "manifest_version": 2,
+  "name": "Bookmark Toolbar Shortcuts",
+  "developer": {
+    "name": "Haggai Nuchi",
+    "url": "https://haggainuchi.com"
+  },
+
+  "version": "1.0",
+  "description": "Use Alt+# for bookmarks in the toolbar",
+
+  "permissions": ["bookmarks"],
+
+  "background": {
+    "scripts": ["bookmark.js"]
+  },
+
+  "commands": {
+    "bookmark-shortcut-1": {
+      "description": "Go to bookmark number 1", 
+      "suggested_key": {
+        "default": "Alt+1"
+      }
+    }, 
+    "bookmark-shortcut-2": {
+      "description": "Go to bookmark number 2", 
+      "suggested_key": {
+        "default": "Alt+2"
+      }
+    }, 
+    "bookmark-shortcut-3": {
+      "description": "Go to bookmark number 3", 
+      "suggested_key": {
+        "default": "Alt+3"
+      }
+    }, 
+    "bookmark-shortcut-4": {
+      "description": "Go to bookmark number 4", 
+      "suggested_key": {
+        "default": "Alt+4"
+      }
+    }, 
+    "bookmark-shortcut-5": {
+      "description": "Go to bookmark number 5", 
+      "suggested_key": {
+        "default": "Alt+5"
+      }
+    }, 
+    "bookmark-shortcut-6": {
+      "description": "Go to bookmark number 6", 
+      "suggested_key": {
+        "default": "Alt+6"
+      }
+    }, 
+    "bookmark-shortcut-7": {
+      "description": "Go to bookmark number 7", 
+      "suggested_key": {
+        "default": "Alt+7"
+      }
+    }, 
+    "bookmark-shortcut-8": {
+      "description": "Go to bookmark number 8", 
+      "suggested_key": {
+        "default": "Alt+8"
+      }
+    }, 
+    "bookmark-shortcut-9": {
+      "description": "Go to bookmark number 9", 
+      "suggested_key": {
+        "default": "Alt+9"
+      }
+    }
+  }
+}
