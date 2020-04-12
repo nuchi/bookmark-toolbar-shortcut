@@ -1,21 +1,25 @@
 "use strict";
 
-function onError(error) {
-  console.error(`Error: ${error}`);
-}
-
 browser.commands.onCommand.addListener((command) => {
-  var index = command.split("-")[2] - 1;
+  let currentTabPromise = browser.windows.getCurrent().then((w) => {
+    return browser.tabs.query({'active': true, 'windowId': w.id});
+  });
 
-  // Look it up every time instead of on loading the extension,
-  // so that it's sensitive to the user changing the toolbar.
-  var gettingBMs = browser.bookmarks.getChildren("toolbar_____");
-  gettingBMs.then((bookmarks) => {
-    if (index >= bookmarks.length)
+  let bookmarkUrlPromise = browser.bookmarks.getChildren("toolbar_____").then((bookmarks) => {
+    let bookmarkIdx = command.split("-")[2] - 1;
+    if (bookmarkIdx >= bookmarks.length) {
+      return null;
+    }
+    let url = bookmarks[bookmarkIdx].url;
+    return url;
+  });
+
+  Promise.all([currentTabPromise, bookmarkUrlPromise]).then(([[tab], url]) => {
+    if (url == null) {
       return;
-
-    let url = bookmarks[index].url;
-    // updates active tab
-    browser.tabs.update({url: url});
-  }, onError);
+    }
+    browser.tabs.update(tab.id, {'url': url});
+  }).catch((error) => {
+    console.error(`Error: ${error}`);
+  });
 });
