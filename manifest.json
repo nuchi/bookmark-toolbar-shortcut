@@ -6,7 +6,7 @@
     "url": "https://haggainuchi.com"
   },
 
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Use Alt+# for bookmarks in the toolbar",
 
   "permissions": ["bookmarks"],
